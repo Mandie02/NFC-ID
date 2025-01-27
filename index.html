@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init("rhPAHcyld1kSR4a8R");
+    })();
+    </script>
+
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com; script-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data:;">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
+
+    <title>Lagro NFC-ID</title>
+</head>
+
+<body>
+    <!-- progress -->
+    <div class="scroll-progress"></div>
+
+    <!-- nav -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-content">
+                <div class="logo">
+                    <img src="image/logo.png" alt="Lagro Image">
+                </div>
+                <div class="nav-menu">
+                    <ul>
+                        <li><a href="#Home" class="nav-link">Home</a></li>
+                        <li><a href="#About" class="nav-link">About</a></li>
+                        <li><a href="#Team" class="nav-link">Team</a></li>
+                        <li><a href="#Contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- main -->
+    <main>
+        <!-- home -->
+        <section id="Home" class="home-section" data-aos="fade-up">
+            <!-- bg img-->
+            <div class="background-image">
+                <img src="image/bg1.jpg" alt="Background">
+            </div>
+            <!-- gradient-->
+            <div class="gradient-overlay"></div>
+            <div class="home-content">
+                <h1 class="home-title" data-aos="zoom-in" data-aos-delay="200">
+                    LAGRO NFC-ID
+                </h1>
+                <p class="home-subtitle" data-aos="fade-up" data-aos-delay="400">
+                    An Alternative NFC School ID System
+                </p>
+                <div class="button-container" data-aos="fade-up" data-aos-delay="600">
+                    <button id="openLoginModal" class="primary-button">
+                        Login
+                    </button>
+                    <button id="openRegisterModal" class="secondary-button" onclick="window.open('./pages/register.php', '_blank')">
+                        Register
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- about -->
+        <section id="About" class="about-section" data-aos="fade-up">
+            <div class="about-container">
+                <h1 class="section-title" data-aos="fade-down">About</h1>
+                <p class="about-text" data-aos="fade-up" data-aos-delay="200">
+                    An Alternative NFC School ID System. An Alternative NFC School ID System. An Alternative NFC School ID System. An Alternative NFC School ID System. An Alternative NFC School ID System. An Alternative NFC School ID System. An Alternative NFC School ID System
+                </p>
+            </div>
+        </section>
+    </main>
+    <!-- team -->
+    <section id="Team" class="team-section">
+        <div class="team-container">
+            <h1 class="section-title" data-aos="fade-down">Our Team</h1>
+            <div class="team-grid">
+                <!-- member 1 -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member-image">
+                        <img src="image/member1.jpg" alt="Member 1">
+                        <div class="member-role">Leader</div>
+                    </div>
+                    <div class="member-info">
+                        <h2 class="member-name">Ivan Agaloos</h2>
+                        <p class="member-title">Team Leader</p>
+                    </div>
+                </div>
+
+                <!-- member 2 -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="member-image">
+                        <img src="image/porman2.jfif" alt="Member 2">
+                        <div class="member-role">Programmer</div>
+                    </div>
+                    <div class="member-info">
+                        <h2 class="member-name">Mandie Limbaga</h2>
+                        <p class="member-title">Programmer</p>
+                    </div>
+                </div>
+
+                <!-- member 3 -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="member-image">
+                        <img src="image/member3.jpg" alt="Member 3">
+                        <div class="member-role">Researcher</div>
+                    </div>
+                    <div class="member-info">
+                        <h2 class="member-name">Gale Refe</h2>
+                        <p class="member-title">Researcher</p>
+                    </div>
+                </div>
+
+                <!-- member 4 -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="member-image">
+                        <img src="image/member4.jpg" alt="Member 4">
+                        <div class="member-role">Researcher</div>
+                    </div>
+                    <div class="member-info">
+                        <h2 class="member-name">Nelgie Sedayon</h2>
+                        <p class="member-title">Researcher/UI</p>
+                    </div>
+                </div>
+
+                <!-- member 5 -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="member-image">
+                        <img src="image/member5.jpg" alt="Member 5">
+                        <div class="member-role">Researcher</div>
+                    </div>
+                    <div class="member-info">
+                        <h2 class="member-name">Carl Somera</h2>
+                        <p class="member-title">Researcher</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact -->
+    <section id="Contact" class="contact-section">
+        <div class="contact-container">
+            <h1 class="section-title" data-aos="fade-down">Contact Us</h1>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group" data-aos="fade-up" data-aos-delay="200">
+                    <input type="text" name="name" placeholder="Your Name" required class="input-field">
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group" data-aos="fade-up" data-aos-delay="300">
+                    <input type="email" name="email" placeholder="Your Email" required class="input-field">
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group" data-aos="fade-up" data-aos-delay="400">
+                    <textarea name="message" placeholder="Your Message" rows="4" required
+                        class="input-field"></textarea>
+                    <div class="error-message"></div>
+                </div>
+                <button type="submit" data-aos="fade-up" data-aos-delay="500" class="submit-button">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Welcome Back</h2>
+            <form id="loginForm" action="login.php" method="POST" class="modal-form">
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required class="input-field">
+                    <div id="emailError" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Password" required minlength="8"
+                        class="input-field">
+                    <div id="passwordError" class="error-message"></div>
+                </div>
+                <div id="loginError" class="error-message text-center"></div>
+                <button type="submit" class="submit-button">
+                    Login
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!--
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Create Account</h2>
+            <form id="registerForm" action="register.php" method="POST" class="modal-form">
+                <div class="form-group">
+                    <input type="text" name="fullName" placeholder="Full Name" required minlength="3"
+                        class="input-field">
+                    <div id="nameError" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required class="input-field">
+                    <div id="regEmailError" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Password" required minlength="8"
+                        class="input-field">
+                    <div id="regPasswordError" class="error-message"></div>
+                </div>
+                <div id="registerError" class="error-message text-center"></div>
+                <button type="submit" class="submit-button">
+                    Register
+                </button>
+            </form>
+        </div>
+    </div>
+    -->
+    <!-- overlay -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- scripts -->
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // scroll progress
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.querySelector(".scroll-progress").style.width = scrolled + "%";
+        };
+
+        // modal controls
+        const loginModal = document.getElementById('loginModal');
+        const registerModal = document.getElementById('registerModal');
+        const overlay = document.getElementById('overlay');
+
+        document.getElementById('openLoginModal').addEventListener('click', () => {
+            loginModal.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        /*
+        document.getElementById('openRegisterModal').addEventListener('click', () => {
+            registerModal.classList.add('active');
+            overlay.classList.add('active');
+        }); */
+
+        overlay.addEventListener('click', () => {
+            loginModal.classList.remove('active');
+            //registerModal.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // form validation
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const contactForm = document.getElementById('contactForm');
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // lagay d2 ang logic
+        });
+        
+        // CONTACT || feedback form 
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const serviceID = 'service_8crgwx6'; const templateID = 'template_eu47o4k';
+            emailjs.send( serviceID, templateID, this ).then(
+                (response) => {
+                    
+                },
+                (error) => {
+                    console.log('Error', error);
+                }
+            );
+        });
+        // nav scroll effect
+        window.addEventListener('scroll', function () {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // AOS settings
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false,
+            mirror: true,
+            offset: 50,
+            delay: 100,
+            anchorPlacement: 'top-bottom'
+        });
+
+
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+
+        document.addEventListener('keydown', function (e) {
+        
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+            
+            if (e.ctrlKey && e.shiftKey && e.key === 'c') {
+                e.preventDefault();
+            }
+
+            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+                e.preventDefault();
+            }
+
+            if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+                e.preventDefault();
+            }
+
+            if (e.ctrlKey && e.key === 'u') {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>
