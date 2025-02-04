@@ -27,11 +27,6 @@
     $SQL = "INSERT INTO `nfcdata` (`email`, `lastname`, `firstname`, `lrn`, `gradeSection`, `adviser`, `nfcCardKey`)
         VALUES('$email', '$last_name', '$first_name', '$lrn', '$grade_section', '$adviser', '$NFC_CARD_KEY')";
 
-    if ($conn->query($SQL) === TRUE) {
-        echo json_encode(["message" => "Record inserted successfully"]);
-    } else {
-        echo json_encode(["error" => "Error: " . $SQL . "<br>" . $conn->error]);
-    }
 
     $conn->close();
 ?>
