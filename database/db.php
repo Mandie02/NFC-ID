@@ -19,14 +19,23 @@
     $adviser = isset($data['adviser']) ? $data['adviser'] : null;
     $NFC_CARD_KEY = isset($data['NFC_CARD_KEY']) ? $data['NFC_CARD_KEY'] : null;
 
-    if(empty($email) && empty($last_name) && empty($first_name) && empty($lrn) && empty($grade_section) && empty($adviser) && empty($NFC_CARD_KEY)) {
-        // will continue here tomorrow :>
-        //don't forget mandie
+    if ($email && $last_name && $first_name && $lrn && $grade_section && $adviser && $NFC_CARD_KEY) {
+        $stmt = $conn->prepare("INSERT INTO nfcdata (email, lastname, firstname, lrn, gradeSection, adviser, nfcCardKey) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssssss", $email, $last_name, $first_name, $lrn, $grade_section, $adviser, $NFC_CARD_KEY);
+    
+        if ($stmt->execute()) {
+            echo json_encode(["success" => "Data inserted successfully"]);
+        } else {
+            echo json_encode(["error" => "Error inserting data: " . $stmt->error]);
+        }
+    
+        $stmt->close();
     }
 
+    $conn->close();
+/*
     $SQL = "INSERT INTO `nfcdata` (`email`, `lastname`, `firstname`, `lrn`, `gradeSection`, `adviser`, `nfcCardKey`)
         VALUES('$email', '$last_name', '$first_name', '$lrn', '$grade_section', '$adviser', '$NFC_CARD_KEY')";
+    */
 
-
-    $conn->close();
 ?>

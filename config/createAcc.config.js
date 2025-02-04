@@ -12,13 +12,13 @@ class CreateAccount{
 
     // Pass to the database
     async submit() {    
-        if(this.email === '' || this.last_name === '' || this.first_name === '' || this.lrn === '' || this.grade_section === '' || this.adviser === '' || this.NFC_CARD_KEY === ''){    
-            alert('Please fill up all the fields.');
+
+        if(this.email === '' || this.last_name === '' || this.first_name === '' || this.lrn === '' || this.grade_section === '' || this.adviser === '' || this.NFC_CARD_KEY === '') {
+            alert('Please Fill up all the fields.');
             return;
         }
-
         try {
-            const response = await fetch('../database/db.php', {
+            const response = await fetch("../../database/db.php", {
                 method : 'POST',
                 headers : {
                     'Content-Type' : 'application/json',
@@ -33,19 +33,19 @@ class CreateAccount{
                     NFC_CARD_KEY : this.NFC_CARD_KEY
                 })
             });
-            const content = await response.json();
+            const responseText = await response.text();
+            const content = responseText ? JSON.parse(responseText) : {};
             if (response.ok) {
-                this.sendEmail(this.email, this.last_name, this.first_name);
+                //this.sendEmail(this.email, this.last_name, this.first_name);
                 console.log('Succesfully sent', content);
             } else {
                 console.log('Failed... :C', content);
             }
         } catch (error) {
-            console.log(`Error: ${error}`); // error here: Email is not defined
+            console.error(`Error: ${error}`); // error here: Email is not defined
         }
     }
        
-
     //Send Direct Email to the user once they create an account.
     sendEmail(email, last_name, first_name){
         Email.send({
@@ -62,11 +62,12 @@ class CreateAccount{
     }
 }
 
-document.addEventListener('DOMContentLoaded', () =>{
+
+document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('register_form').addEventListener('keypress', async function(e) {
-        if(e.key === 'Enter'){
+        if(e.key === "Enter"){            
             e.preventDefault();
-        
+            
             const email = document.getElementById('email').value;
             const last_name = document.getElementById('lastname').value;
             const lrn = document.getElementById('lrn').value;
@@ -74,16 +75,16 @@ document.addEventListener('DOMContentLoaded', () =>{
             const grade_section = document.getElementById('grade-section').value;
             const adviser = document.getElementById('adviser').value;
             const NFC_CARD_KEY = document.getElementById('NFC').value;
-        
-            const User = new CreateAccount(email, last_name, first_name, lrn, grade_section, adviser, NFC_CARD_KEY);
-            await User.submit();
+            
+            if(!email || !last_name|| !lrn || !first_name || !grade_section ||
+                !adviser || !NFC_CARD_KEY) {
+                    alert('Please fill up all the fields.');
+                    return;
+            }
+            let User = new CreateAccount(email, last_name, first_name, lrn, grade_section, adviser, NFC_CARD_KEY);
+            await User.submit();                
         }
-    });
+    });    
 });
+    
 
-
-class ReadNFC{
-    constructor(NFC_CARD_KEY){
-        this.NFC_CARD_KEY = NFC_CARD_KEY;
-    }
-}

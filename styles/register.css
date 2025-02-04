@@ -1,24 +1,80 @@
 
 body{
+    color: white;
+    background-color: #235347;
     margin: 0;
     padding: 0;
 }
 
-
-#video {
-    width: 300px;
-    border: 2px solid rgb(24, 51, 24);
-    border-radius: 16px;
+nav {
+    background-color: #051F20;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 400;
 }
 
-
-.cam {
-    display: none;
+.nav-container {
+    max-width:  80rem;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
 }
-.canvas-active {
-    display: block;
-    width: 300px;
-    height: 160px;
-    border: 2px solid rgb(106, 97, 231);
-    border-radius: 16px;
+
+.nav-content {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.logo {
+    transform: scale(1);
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.nav-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-header h1 {
+    font-size:medium;
+}
+
+header .header-register-form {
+    margin: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+header h1 {
+    color: white;
+    font-family: 'Satoshi', sans-serif;
+    font-weight : 800;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    background-color: #123524;   
+}
+
+.input {
+    margin: 7px 0;
+    padding: 5px;
+    width: 20rem;
+    height: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    border: #102b2c 2px solid;
 }
