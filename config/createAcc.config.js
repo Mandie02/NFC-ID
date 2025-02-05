@@ -11,7 +11,7 @@ class CreateAccount{
     }
 
     // Pass to the database
-    async submit() {    
+    async submit() { 
 
         if(this.email === '' || this.last_name === '' || this.first_name === '' || this.lrn === '' || this.grade_section === '' || this.adviser === '' || this.NFC_CARD_KEY === '') {
             alert('Please Fill up all the fields.');
@@ -62,7 +62,6 @@ class CreateAccount{
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('register_form').addEventListener('keypress', async function(e) {
         if(e.key === "Enter"){            
@@ -76,13 +75,25 @@ document.addEventListener('DOMContentLoaded', () => {
             const adviser = document.getElementById('adviser').value;
             const NFC_CARD_KEY = document.getElementById('NFC').value;
             
+            let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if(email.match(regex)) {
+                console.log('Valid Email Address.');
+            } else {
+                alert('Please Enter Valid Email.');
+                return;
+            }
+
             if(!email || !last_name|| !lrn || !first_name || !grade_section ||
                 !adviser || !NFC_CARD_KEY) {
                     alert('Please fill up all the fields.');
                     return;
             }
             let User = new CreateAccount(email, last_name, first_name, lrn, grade_section, adviser, NFC_CARD_KEY);
-            await User.submit();                
+            await User.submit();
+            
+            // msg greet
+            
         }
     });    
 });

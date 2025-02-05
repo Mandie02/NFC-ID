@@ -23,7 +23,7 @@
                     <img src="../../image/logo.png" alt="Lagro Image">
                 </div>
                 <div class="nav-header">
-                    <h1>LAGRO NFC ID</h1>
+                    <h1>LAGRO NFC-ID</h1>
                 </div>
             </div>
         </div>    
@@ -32,7 +32,7 @@
 
     <header>
         <div class="header-register-form">
-            <h1>LAGRO NFC REGISTER</h1>
+            <h1>LAGRO NFC ID REGISTER</h1>
         </div>
     </header>
 
@@ -42,7 +42,7 @@
         
         <div class="input-form">
             <div class="upload-image">
-                <label for="file-name">Upload Image: </label>
+                <label for="file-name">Profile: </label>
                 <input type="file" name="file-name" accept="image/*"  id="img-id">
             </div>
             <div class="input-field">
@@ -83,6 +83,14 @@
         </div>
     </form>
 </main>
+
+    <div class="modal">
+        <div class="modal-content">
+            <div class="create-acc-successfully">
+                <h1 id="msg-greet"></h1>
+            </div>
+        </div>
+    </div>
 
     <script src="../../config/createAcc.config.js"></script>
 </body>

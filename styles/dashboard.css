@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #051F20;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 400;
+}
+
+.header-container {
+    max-width:  80rem;
+    margin: 0 auto;
+    padding: 0.1rem 1.5rem;
+}
+
+.header-content {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.user-icon{
+    color: rgb(252, 252, 252);
+    font-size: 18px;
+}
+
+.logo {
+    transform: scale(1);
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo img {
+    width: 3rem;
+    height: 3rem;
+}
