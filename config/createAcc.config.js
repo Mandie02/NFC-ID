@@ -36,7 +36,7 @@ class CreateAccount{
             const responseText = await response.text();
             const content = responseText ? JSON.parse(responseText) : {};
             if (response.ok) {
-                //this.sendEmail(this.email, this.last_name, this.first_name);
+                this.sendEmail(this.email, this.last_name, this.first_name);
                 console.log('Succesfully sent', content);
             } else {
                 console.log('Failed... :C', content);
@@ -47,18 +47,21 @@ class CreateAccount{
     }
        
     //Send Direct Email to the user once they create an account.
-    sendEmail(email, last_name, first_name){
-        Email.send({
-            Host : "smtp.gmail.com",
-            Username : "yoshikagek304@gmail.com", // i forgot how to use the ENV file to keep account secure.
-            Password : "4D9FD21A0A16AE8415AF665787D6BF2E5DE9",
-            To : email,
-            From : "yoshikagek304@gmail.com",
-            Subject : "Account Created",
-            Body : `${last_name + " " + first_name}, Your account has been created. Thank you for using our system.`,
-        }).then(
-          message => alert("mail sent successfully")
-        );
+    sendEmail(email, last_name, first_name){ //smtpjs
+        let templateParameter = {
+            from_name: "LAGRO NFC-ID",
+            to_name : `${first_name}`, 
+            header : `WELCOME S.M.A.R.T. LAGRONIANS`,
+            body: ` Thank you ${last_name}  ${first_name} for using LAGRO NFC-ID.`,
+            to_email: email // Pass the user email
+        };
+        emailjs.send('service_s9mkmff', 'template_eu47o4k', templateParameter)
+        .then((res) => {
+            alert("Email Sent Successfully!", res);
+        })
+        .catch((err) => {
+            console.error("Error Sending Email:", err);
+        });
     }
 }
 

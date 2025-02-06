@@ -14,6 +14,16 @@
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" rel="stylesheet">
     <title>NFC REGISTRATION</title>
     <link rel="stylesheet" href="../../styles/register.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init({
+            publicKey: "e3HcydfpA2ND2eOiG",
+            });
+        })();
+    </script>
 </head>
 <body>
     <nav>
@@ -47,7 +57,7 @@
             </div>
             <div class="input-field">
                <div class="email">
-                    <input type="text" name="email" id="email" class="input"  placeholder="Email" required>
+                    <input type="email" name="email" id="email" class="input"  placeholder="Email" required>
                </div>
             </div>
             <div class="input-field">
@@ -62,7 +72,7 @@
             </div>
             <div class="input-field">
                 <div class="lrn">
-                    <input type="text" name="lrn" id="lrn" class="input"  placeholder="LRN" required>
+                    <input type="number" name="lrn" id="lrn" class="input"  placeholder="LRN" required>
                 </div>
             </div>
             <div class="input-field">
@@ -77,7 +87,7 @@
             </div>
             <div class="input-field">
                 <div class="NFC">
-                    <input type="text" name="NFC" id="NFC" class="input" placeholder="NFC CARD" required>
+                    <input type="number" name="NFC" id="NFC" class="input" placeholder="NFC CARD" required>
                 </div>
             </div>
         </div>
