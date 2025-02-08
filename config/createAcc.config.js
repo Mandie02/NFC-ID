@@ -65,6 +65,7 @@ class CreateAccount{
     }
 }
 
+/* REGISTER FORM */
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('register_form').addEventListener('keypress', async function(e) {
         if(e.key === "Enter"){            
@@ -100,5 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });    
 });
+
+
+
     
 

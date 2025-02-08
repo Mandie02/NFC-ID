@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 400;
+    color: white;
+    background-color: #0B2B26;
+}
+
+.id-container {
+    margin: 50px 0;
+    padding: auto 0;
+    width: 25rem;
+    background-color: #123524;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    border-radius: 16px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.nfc-id-content {
+    margin: 20px 0;
+    padding: 20px;
+    justify-content: center;
+}
+
+.school-logo {
+    gap: 10px;
+    display: inline-flex;
+    font-weight: 700;
+}
+
+.lagro-logo {
+    width: 3rem;
+    height: 3rem;
+}
+
+.nfc-user-image {
+    margin-top: 15px;
+    justify-content: center;
+    justify-self: center;
+}
+
+.nfc-image {
+    border-radius: 5px;
+    border: 2px solid #01130a;
+}
+
+.info-content {
+    margin-top: 3rem;
+}
+
+.nfc-user {
+    row-gap: 16px;
+
+}
+
+.nfc-user h1{
+    font-weight: 500;
+    display: inline-flex;
+    font-size: 18px;
+}
+

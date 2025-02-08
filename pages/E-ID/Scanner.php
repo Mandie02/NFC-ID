@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E ID SCANNER</title>
+    <title>NFC-ID SCANNER</title>
 </head>
 <body>
     <div class="div">
@@ -11,10 +11,15 @@
             <h1>NFC Scanner</h1>
         </div>
         <div class="nfc-scanner">
-            <div class="nfc-scanner-btn">
+
+            <div class="buttons">
                 <button id="scan">SCAN</button>
-                <button>STOP</button>
             </div>
+
+            <div class="scan-message">
+                <h1 id="serial_number"></h1>
+            </div>
+
             <div class="nfc-scanner-error" style="display: none;">
                 <p>ERROR: NFC SCANNER NOT DETECTED</p>
             </div>
@@ -32,6 +37,6 @@
         </div>
     </div>
 
-    <script src="../../config/onRead.eID.js"></script>
+    <script src="../../config/mobile_nfc_read.js"></script>
 </body>
 </html>
