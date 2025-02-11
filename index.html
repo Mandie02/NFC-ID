@@ -9,12 +9,13 @@
     </script>
     <script type="text/javascript">
     (function(){
-        emailjs.init("rhPAHcyld1kSR4a8R");
+        emailjs.init("e3HcydfpA2ND2eOiG");
     })();
     </script>
 
-    <meta http-equiv="Content-Security-Policy"
+    <!--<meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com; script-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data:;">
+    -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" rel="stylesheet">
@@ -44,7 +45,15 @@
                 </div>
             </div>
         </div>
+
     </nav>
+
+    <div class="ham-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
     <!-- main -->
     <main>
         <!-- home -->
@@ -156,16 +165,16 @@
             <h1 class="section-title" data-aos="fade-down">Contact Us</h1>
             <form id="contactForm" class="contact-form">
                 <div class="form-group" data-aos="fade-up" data-aos-delay="200">
-                    <input type="text" name="name" placeholder="Your Name" required class="input-field">
+                    <input type="text" name="name" placeholder="Your Name" required class="input-field" id="user-name">
                     <div class="error-message"></div>
                 </div>
                 <div class="form-group" data-aos="fade-up" data-aos-delay="300">
-                    <input type="email" name="email" placeholder="Your Email" required class="input-field">
+                    <input type="email" name="email" placeholder="Your Email" required class="input-field" id="user-email">
                     <div class="error-message"></div>
                 </div>
                 <div class="form-group" data-aos="fade-up" data-aos-delay="400">
                     <textarea name="message" placeholder="Your Message" rows="4" required
-                        class="input-field"></textarea>
+                        class="input-field" id="user-message"></textarea>
                     <div class="error-message"></div>
                 </div>
                 <button type="submit" data-aos="fade-up" data-aos-delay="500" class="submit-button">
@@ -276,19 +285,30 @@
             // lagay d2 ang logic
         });
         
+
         // CONTACT || feedback form 
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const serviceID = 'service_8crgwx6'; const templateID = 'template_eu47o4k';
-            emailjs.send( serviceID, templateID, this ).then(
-                (response) => {
-                    
-                },
-                (error) => {
-                    console.log('Error', error);
-                }
-            );
+
+            let user_name = document.getElementById('user-name').value;
+            let user_email = document.getElementById('user-email').value;
+            let user_message = document.getElementById('user-message').value;
+
+            let feedbackMessage = {
+                from_name : user_name,
+                from_email : user_email,
+                message : user_message
+            }
+            
+            emailjs.send('service_s9mkmff', 'template_6iva8rq', feedbackMessage)
+            .then((res) => {
+                alert("Email Sent Successfully!", res);
+            })
+            .catch((err) => {
+                console.error("Error Sending Email:", err);
+            });
         });
+
         // nav scroll effect
         window.addEventListener('scroll', function () {
             const nav = document.querySelector('nav');
