@@ -32,10 +32,8 @@
         $stmt->close();
     }
 
-    $conn->close();
-/*
-    $SQL = "INSERT INTO `nfcdata` (`email`, `lastname`, `firstname`, `lrn`, `gradeSection`, `adviser`, `nfcCardKey`)
-        VALUES('$email', '$last_name', '$first_name', '$lrn', '$grade_section', '$adviser', '$NFC_CARD_KEY')";
-    */
+    $sql = "SELECT email, lastname, firstname, lrn, gradeSection, adviser, nfcCardKey FROM nfcdata";
+    $result = $conn->query($sql);
 
+    $conn->close();
 ?>
