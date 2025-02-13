@@ -37,8 +37,13 @@
                     <h1 id="user-adviser" class="adviser" name="adviser">Juan Dela Cruz</h1>
                 </div>
             </div>
-
         </div>
+
     </div>
+    <div class="nfc-key-container">
+        <input type="text" id="nfcInput"  class="nfc-input" placeholder="Enter NFC Key">            
+    </div>
+
+    <script src="../../config/Scan.js"></script>
 </body>
 </html>

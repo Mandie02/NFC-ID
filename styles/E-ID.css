@@ -63,3 +63,25 @@ body {
     font-size: 18px;
 }
 
+.nfc-key-container {
+    width: 30%;
+    height: 4rem;
+    background-color: #123524;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+}
+
+.nfc-input {
+    font-size: 16px;
+    border-radius: 6px;
+    color: white;
+    height: 2.1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nfc-input:focus {
+    outline: none;
+    border-color: #8EB69B;
+}

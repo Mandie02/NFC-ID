@@ -1,5 +1,5 @@
 // MOBILE NFC READER
-/*
+
 document.getElementById('scan').addEventListener('click', async () => {
     try {
         const ndef = new NDEFReader();
@@ -16,13 +16,5 @@ document.getElementById('scan').addEventListener('click', async () => {
     } catch (error) {
         console.log(error);
         alert('Sorry, your device is not supported of NFC.');
-    }
-});
-*/
-document.addEventListener('DOMContentLoaded', async () => {
-    const ndef = new NDEFReader();
-    const nfcperms = await navigator.permissions.query({ name : 'nfc' });
-    if (nfcperms.state === 'granted') {
-        await read();
     }
 });

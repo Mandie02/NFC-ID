@@ -101,23 +101,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });    
 });
 
-class OnReadNfc {
-    constructor(nfc_key) {
-        this.nfc_key = nfc_key;
-    }
-
-    reading() {
-        try {
-            const response = await fetch('../../database/db.php', {
-                method : 'GET',
-                headers : {
-                    'Content-Type' : 'application/json',
-                }
-            });
-        } catch (error) {
-            
-        }
-    }    
-}
-    
-
