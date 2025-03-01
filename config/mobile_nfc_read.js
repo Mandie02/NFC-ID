@@ -11,7 +11,7 @@ document.getElementById('scan').addEventListener('click', async () => {
 
         ndef.addEventListener("reading", ({message , serialNumber}) => {
             console.log(`Records: (${message.record.length})`);
-            document.getElementById('serial_number').textContent += `Serial Number : (${serialNumber})`;
+            document.getElementById('serial_number').innerHTML += `Serial Number : (${serialNumber})`;
         });
     } catch (error) {
         console.log(error);

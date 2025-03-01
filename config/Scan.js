@@ -33,5 +33,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Error fetching data');
             }
         }
+        clearInputField(nfcInput);
     });
+
+    function clearInputField(target) {
+        if(target.value === target) {
+            target.value = "";
+        }
+    }
 });

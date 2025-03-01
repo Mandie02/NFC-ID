@@ -33,6 +33,8 @@
     }
 
 
+
+    // Get the nfckey from the database end pass to javascript scan.js file
     $nfc_key = isset($_GET['nfc_key']) ? $_GET['nfc_key'] : null;
 
     if ($nfc_key) {
