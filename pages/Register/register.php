@@ -41,15 +41,13 @@
 <main>
 
     <header>
-        <div class="header-register-form">
+        <div class="header-register-form" data-aos="fade-up" data-aos-duration="2000">
             <h1>LAGRO NFC ID REGISTER</h1>
         </div>
     </header>
 
-    <form action="register.php" method="post" id="register_form">
-        <!-- Student Register Form-->
-
-        
+    <!-- Student Register Form-->
+    <form action="register.php" method="post" id="register_form" data-aos="zoom-in" data-aos-duration="1500">
         <div class="input-form">
             <div class="upload-image">
                 <label for="file-name">Profile: </label>
@@ -103,5 +101,8 @@
     </div>
 
     <script src="../../config/createAcc.config.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
