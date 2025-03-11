@@ -42,7 +42,7 @@
             </a>
             <hr style="color: black;">
             <!-- Admin Sidebar-->
-            <ul class="admin-nav nav nav-pills flex-column mb-auto">
+            <ul class="admin-nav nav nav-pills flex-column mb-auto" style="display: none;">
                 <li class="nav-item  my-2">
                     <a class="nav-link text-dark fs-5" href="#">
                         <i class="bi bi-database me-2" style="width: 16; height: 16;"></i>
@@ -63,7 +63,7 @@
                 </li>
             </ul>
             <!-- Student Dashboard -->
-            <ul class="student-nav nav nav-pills flex-column mb-auto" style="display: none;">
+            <ul class="student-nav nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
                     <a class="nav-link text-dark fs-5" href="#">
                         <i class="bi bi-database me-2"></i>
@@ -84,6 +84,8 @@
                 </li>
             </ul>
         </div>
+
+        <div class="container"></div>
         <!-- ADMIN Panel-
         <div class="container d-flex table-container">
             <table>
