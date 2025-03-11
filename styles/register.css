@@ -1,18 +1,22 @@
 
 body{
     color: white;
-    background-color: #0B2B26;
+    background-color: #FBFFE4;
     margin: 0;
     padding: 0;
 }
 
 nav {
-    background-color: #051F20;
+    background-color: #3D8D7A;
+    backdrop-filter: blur(16px);
+    border-bottom: 2px solid grey;
     color: white;
     margin: 0;
     padding: 0;
     font-family: 'Satoshi', sans-serif;
     font-weight: 400;
+    position: -webkit-sticky;
+    opacity: 1.1;
 }
 
 .nav-container {
@@ -59,13 +63,13 @@ header .header-register-form {
 
 header h1 {
     font-size: 2rem;
-    color: white;
+    color: #1A1A19;
     font-family: 'Satoshi', sans-serif;
     font-weight: 900;
 }
 
 form {
-    margin: 10px 0;
+    margin-top: 10px 0;
     padding: 25px 0;
     width: 500px;
     height: 30rem;
@@ -73,10 +77,14 @@ form {
     justify-content: center;
     justify-self: center;
     align-items: center;
-    background-color: #123524;
-    border: #102b2c 2px solid;
+    background-color: #3D8D7A;
+    border: #3D8D7A 2px solid;
     border-radius: 15px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+     rgba(0, 0, 0, 0.12) 0px -12px 30px,
+      rgba(0, 0, 0, 0.12) 0px 4px 6px,
+       rgba(0, 0, 0, 0.17) 0px 12px 13px,
+        rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .input {
@@ -91,12 +99,15 @@ form {
     font-size: 16px;
     font-weight: 600;
     background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(92, 54, 54, 0.2);
     color: white;
 }
 
 .input:focus {
     outline: none;
-    border-color: #8EB69B;
+    border-color: #3f4942;
 }
 
+.input::placeholder {
+    color: #FBFFE4;
+}
