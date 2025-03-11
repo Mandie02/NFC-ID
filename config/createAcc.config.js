@@ -1,6 +1,6 @@
 
 class CreateAccount{
-    constructor(email, last_name, first_name, lrn, grade_section, adviser, NFC_CARD_KEY){
+    constructor(email, last_name, first_name, lrn, grade_section, adviser, NFC_CARD_KEY, img_profile){
         this.email = email;
         this.last_name = last_name;
         this.first_name = first_name;
@@ -8,16 +8,21 @@ class CreateAccount{
         this.grade_section = grade_section;
         this.adviser = adviser;
         this.NFC_CARD_KEY = NFC_CARD_KEY;
+        this.img_profile = img_profile;
     }
 
     // Pass to the database
     async submit() { 
-
+        
         if(this.email === '' || this.last_name === '' || this.first_name === '' || this.lrn === '' || this.grade_section === '' || this.adviser === '' || this.NFC_CARD_KEY === '') {
             alert('Please Fill up all the fields.');
             return;
         }
         try {
+            /*
+                Fetch data using the POST method to upload all the collected
+                data from the input fields and store it into the db.php 
+            */
             const response = await fetch("../../database/db.php", {
                 method : 'POST',
                 headers : {
@@ -30,10 +35,12 @@ class CreateAccount{
                     lrn : this.lrn,
                     grade_section : this.grade_section,
                     adviser : this.adviser,
-                    NFC_CARD_KEY : this.NFC_CARD_KEY
+                    NFC_CARD_KEY : this.NFC_CARD_KEY,
+                    img_profile: this.img_profile
                 })
             });
             const responseText = await response.text();
+            console.log('response txt: ', responseText);
             const content = responseText ? JSON.parse(responseText) : {};
             if (response.ok) {
                 this.sendEmail(this.email, this.last_name, this.first_name);
@@ -42,12 +49,12 @@ class CreateAccount{
                 console.log('Failed... :C', content);
             }
         } catch (error) {
-            console.error(`Error: ${error}`); // error here: Email is not defined
+            console.error(`Error: ${error}`);
         }
     }
        
     //Send Direct Email to the user once they create an account.
-    sendEmail(email, last_name, first_name){ //smtpjs
+    sendEmail(email, last_name, first_name){ //emailjs
         let templateParameter = {
             from_name: "LAGRO NFC-ID",
             to_name : `${first_name}`, 
@@ -63,6 +70,10 @@ class CreateAccount{
             console.error("Error Sending Email:", err);
         });
     }
+
+    resetInput() {
+        
+    }
 }
 
 /* REGISTER FORM */
@@ -71,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(e.key === "Enter"){            
             e.preventDefault();
             
+            const input_img = document.getElementById('img-id').value;
             const email = document.getElementById('email').value;
             const last_name = document.getElementById('lastname').value;
             const lrn = document.getElementById('lrn').value;
@@ -79,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const adviser = document.getElementById('adviser').value;
             const NFC_CARD_KEY = document.getElementById('NFC').value;
             
+            /* Email Validation */
             let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
             if(email.match(regex)) {
@@ -88,15 +101,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            /*  Check if all the input fields are not empty.
+                It helps to prevent sending an empty or null input to the database. 
+            */
             if(!email || !last_name|| !lrn || !first_name || !grade_section ||
                 !adviser || !NFC_CARD_KEY) {
                     alert('Please fill up all the fields.');
                     return;
             }
-            let User = new CreateAccount(email, last_name, first_name, lrn, grade_section, adviser, NFC_CARD_KEY);
+            let User = new CreateAccount(email, last_name, first_name, lrn, grade_section, adviser, NFC_CARD_KEY, input_img);
             await User.submit();
-            
-            // msg greet
         }
     });    
 });
