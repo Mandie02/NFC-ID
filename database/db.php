@@ -19,7 +19,7 @@
     $adviser = isset($data['adviser']) ? $data['adviser'] : null;
     $NFC_CARD_KEY = isset($data['NFC_CARD_KEY']) ? $data['NFC_CARD_KEY'] : null;
     $img_profile = isset($data['img_profile']) ? $data['img_profile'] : null;
-    
+
     if ($email && $last_name && $first_name && $lrn && $grade_section && $adviser && $NFC_CARD_KEY && $img_profile) {
         $stmt = $conn->prepare("INSERT INTO nfcdata (email, lastname, firstname, lrn, gradeSection, adviser, nfcCardKey, user_img) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssssss", $email, $last_name, $first_name, $lrn, $grade_section, $adviser, $NFC_CARD_KEY, $img_profile);

@@ -1,5 +1,5 @@
 <?php
-    include "../../database/db.php";
+    include '../../database/db.php';
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +51,7 @@
         <div class="input-form">
             <div class="upload-image">
                 <label for="file-name">Profile: </label>
-                <input type="file" name="file-name" accept="image/*"  id="img-id">
+                <input type="file" name="file-name" accept="image/*"  id="img-id" placeholder="ID PICTURE">
             </div>
             <div class="input-field">
                <div class="email">

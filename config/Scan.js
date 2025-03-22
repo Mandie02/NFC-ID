@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const userAdviser = document.getElementById('user-adviser');
 
     nfcInput.addEventListener('keypress', async function(e) {
+
+        function clearInputFields(inpf) {
+            inpf.value = "";
+        }
+
         if (e.key === 'Enter') {
             e.preventDefault();
             const nfcKey = nfcInput.value.trim();
@@ -18,17 +23,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
             try {
                 const response = await fetch(`../../pages/E-ID/E-ID.config.php?nfc_key=${nfcKey}`);
-                const responseText = await response.text();
-                console.log(responseText);
-                const data = responseText ? JSON.parse(responseText) : {};
+                const data = await response.json();
 
                 if (data.error) {
                     alert(data.error);
                 } else {
                     const user = data[0];
-                    if(user.img_profile) {
-                        userProfile.src = user.img_profile;
-                    } else userProfile.src = "../../image/noPFP.png";
+                    if(user.user_img) {
+                        userProfile.src = user.user_img;
+                    } else {
+                        console.log('Using Default image.')
+                        userProfile.src = "../../image/logo.png";
+                    }
+                    
                     userFullName.textContent = `${user.firstname} ${user.lastname}`;
                     userLrn.textContent = user.lrn;
                     userGradeSection.textContent = user.gradeSection;
@@ -38,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('Error fetching data:', error);
                 alert('Error fetching data');
             }
+            clearInputFields(nfcInput);
         }
     });
 });

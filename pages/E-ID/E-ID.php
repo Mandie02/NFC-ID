@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,7 @@
             </div>
 
             <div class="nfc-user-image">
-                <img alt="NFC-ID" id="nfc-image" class="nfc-image" src="../../image/noPFP.png">
+                <img alt="NFC-ID" id="nfc-image" class="nfc-image" src="../../image/logo.png">
             </div>
 
             <div class="info-content">

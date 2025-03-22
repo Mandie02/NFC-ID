@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,7 +86,9 @@
             <div class="about-container">
                 <h1 class="section-title" data-aos="fade-down">About</h1>
                 <p class="about-text" data-aos="fade-up" data-aos-delay="200">
-                    An Alternative NFC School ID System. An Alternative NFC School ID System. An Alternative NFC School ID System. An Alternative NFC School ID System. An Alternative NFC School ID System. An Alternative NFC School ID System. An Alternative NFC School ID System
+                    Envision a world where you pay, unlock, share, and access services by just tapping. Near Field Communication (NFC) makes this a reality, turning daily interactions into effortless, secure, and instant experiences. From making contactless payments, reading smart IDs, to checking in with your phone, NFC does away with the inconvenience of swiping, typing, or waiting.
+
+This robust wireless technology facilitates rapid, secure communication between devices when they are in close proximity—no pairing, no passwords, no latency. From mobile payments and digital identification to smart home automation, NFC is revolutionizing the future of convenience.
                 </p>
             </div>
         </section>
@@ -187,14 +188,14 @@
     <!-- modals -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
-            <h2 class="modal-title">Welcome Back</h2>
-            <form id="loginForm" action="login.php" method="POST" class="modal-form">
+            <h2 class="modal-title">Admin Log In</h2>
+            <form id="loginForm" action="" class="modal-form">
                 <div class="form-group">
-                    <input type="email" name="email" placeholder="Email" required class="input-field">
+                    <input id="email-admin" type="email" name="email" placeholder="Email" required class="input-field">
                     <div id="emailError" class="error-message"></div>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" placeholder="Password" required minlength="8"
+                    <input id="password-admin" type="password" name="password" placeholder="Password" required minlength="8"
                         class="input-field">
                     <div id="passwordError" class="error-message"></div>
                 </div>
@@ -205,34 +206,6 @@
             </form>
         </div>
     </div>
-
-    <!--
-    <div id="registerModal" class="modal">
-        <div class="modal-content">
-            <h2 class="modal-title">Create Account</h2>
-            <form id="registerForm" action="register.php" method="POST" class="modal-form">
-                <div class="form-group">
-                    <input type="text" name="fullName" placeholder="Full Name" required minlength="3"
-                        class="input-field">
-                    <div id="nameError" class="error-message"></div>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Email" required class="input-field">
-                    <div id="regEmailError" class="error-message"></div>
-                </div>
-                <div class="form-group">
-                    <input type="password" name="password" placeholder="Password" required minlength="8"
-                        class="input-field">
-                    <div id="regPasswordError" class="error-message"></div>
-                </div>
-                <div id="registerError" class="error-message text-center"></div>
-                <button type="submit" class="submit-button">
-                    Register
-                </button>
-            </form>
-        </div>
-    </div>
-    -->
     <!-- overlay -->
     <div id="overlay" class="overlay"></div>
 
@@ -262,13 +235,7 @@
             loginModal.classList.add('active');
             overlay.classList.add('active');
         });
-
-        /*
-        document.getElementById('openRegisterModal').addEventListener('click', () => {
-            registerModal.classList.add('active');
-            overlay.classList.add('active');
-        }); */
-
+        
         overlay.addEventListener('click', () => {
             loginModal.classList.remove('active');
             //registerModal.classList.remove('active');
@@ -359,6 +326,7 @@
             }
         });
     </script>
-</body>
+    <script src="./config/createAcc.config.js"></script>
 
+</body>
 </html>

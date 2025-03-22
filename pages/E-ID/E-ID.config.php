@@ -1,8 +1,9 @@
 <?php
     include '../../database/db.php';
-
+    
+    header("Content-Type: application/json");
         // Get the nfckey from the database end pass to javascript scan.js file
-        /*$nfc_key = isset($_GET['nfc_key']) ? $_GET['nfc_key'] : null;
+        $nfc_key = isset($_GET['nfc_key']) ? $_GET['nfc_key'] : null;
 
         if ($nfc_key) {
             $stmt = $conn->prepare("SELECT email, lastname, firstname, lrn, gradeSection, adviser, nfcCardKey, user_img FROM nfcdata WHERE nfcCardKey = ?");
@@ -24,8 +25,7 @@
             echo json_encode(["error" => "NFC key is required"]);
         }
         $conn->close();
-        */
-
+        /*
         if (isset($_GET['nfc_key'])) {
             $nfcKey = $_GET['nfc_key'];
         
@@ -36,19 +36,18 @@
             $result = $stmt->get_result();
         
             if ($row = $result->fetch_assoc()) {
-                if (!empty($row['img_profile'])) {
-                    $imageData = $row['img_profile']; // Binary image data
+                if (!empty($row['user_img'])) {
                     $finfo = finfo_open(FILEINFO_MIME_TYPE);
                     $imageType = finfo_buffer($finfo, $imageData);
                     finfo_close($finfo);
         
                     if (strpos($imageType, 'image') !== false) {
-                        $row['img_profile'] = "data:$imageType;base64," . base64_encode($imageData);
+                        $row['user_img'] = "data:$imageType;base64," . base64_encode($imageData);
                     } else {
-                        $row['img_profile'] = null; // Invalid image, return null
+                        $row['user_img'] = null; 
                     }
                 } else {
-                    $row['img_profile'] = null; // No image found
+                    $row['user_img'] = null;
                 }
         
                 echo json_encode([$row]);
@@ -57,7 +56,8 @@
             }
         
             $stmt->close();
-        }
+        } 
         
-        $conn->close();        
+        $conn->close(); */
+
 ?>

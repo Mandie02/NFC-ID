@@ -1,5 +1,4 @@
-
-class CreateAccount{
+class CreateAccount{ //Student Register Form
     constructor(email, last_name, first_name, lrn, grade_section, adviser, NFC_CARD_KEY, img_profile){
         this.email = email;
         this.last_name = last_name;
@@ -11,14 +10,34 @@ class CreateAccount{
         this.img_profile = img_profile;
     }
 
+    async ImageBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => {
+                resolve(reader.result);
+            }
+            reader.onerror = (error) => {reject(error)};
+            reader.readAsDataURL(file);
+        });
+    }
+
+    
     // Pass to the database
-    async submit() { 
-        
+    async submit() {    
         if(this.email === '' || this.last_name === '' || this.first_name === '' || this.lrn === '' || this.grade_section === '' || this.adviser === '' || this.NFC_CARD_KEY === '') {
             alert('Please Fill up all the fields.');
             return;
         }
         try {
+
+            const imgFile = document.getElementById('img-id').files[0];
+            if(imgFile === "") {
+                alert('Please Select and image');
+                return;
+            }
+            
+            const b64img = await this.ImageBase64(imgFile);
+
             /*
                 Fetch data using the POST method to upload all the collected
                 data from the input fields and store it into the db.php 
@@ -36,7 +55,7 @@ class CreateAccount{
                     grade_section : this.grade_section,
                     adviser : this.adviser,
                     NFC_CARD_KEY : this.NFC_CARD_KEY,
-                    img_profile: this.img_profile
+                    img_profile: b64img
                 })
             });
             const responseText = await response.text();
@@ -49,7 +68,7 @@ class CreateAccount{
                 console.log('Failed... :C', content);
             }
         } catch (error) {
-            console.error(`Error: ${error}`);
+            console.log(`Error: ${error}`);
         }
     }
        
@@ -70,14 +89,17 @@ class CreateAccount{
             console.error("Error Sending Email:", err);
         });
     }
-
-    resetInput() {
-        
-    }
 }
 
 /* REGISTER FORM */
 document.addEventListener('DOMContentLoaded', () => {
+    function clearInputFields() {
+        const inputs = document.querySelectorAll('.input');
+        inputs.forEach(input => {
+            input.value = "";
+        });
+    }
+
     document.getElementById('register_form').addEventListener('keypress', async function(e) {
         if(e.key === "Enter"){            
             e.preventDefault();
@@ -111,7 +133,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             let User = new CreateAccount(email, last_name, first_name, lrn, grade_section, adviser, NFC_CARD_KEY, input_img);
             await User.submit();
-        }
-    });    
+            clearInputFields();
+        }        
+    });        
 });
+
+
+
 

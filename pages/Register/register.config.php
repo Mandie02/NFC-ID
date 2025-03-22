@@ -1,5 +1,5 @@
 <?
-
+    //not used
 
     $data = json_decode(file_get_contents("php://input"), true);
     $email = isset($data['email']) ? $data['email'] : null;
